@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Project</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <a href="#navigation" class="nav-trigger">
+        <!-- span creates the lines for the hamburger -->
+        Menu <span></span>
+    </a>
+    <main>
+        <section class="intro">
+            <h1>Final Project</h1>
+        </section>
+    </main>
+
+    <nav class="nav-container" id="navigation">
+        <header>
+            <h2>Navigation</h2>
+        </header>
+        <ul class="nav">
+            <li><a href="#0">About</a></li>
+            <li><a href="#0">Services</a></li>
+            <li><a href="#0">Portfolio</a></li>
+            <li><a href="#0">Clients</a></li>
+            <li><a href="#0">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay"></div>
+    <script type="text/javascript">
+        var navTrigger = document.getElementsByClassName('nav-trigger')[0],
+            body = document.getElementsByTagName('body')[0];
+
+            navTrigger.addEventListener('click', toggleNavigation);
+
+        function toggleNavigation(event){
+            event.preventDefault();
+
+            body.classList.toggle('nav-open');
+        }
+    </script>
+</body>
+</html>

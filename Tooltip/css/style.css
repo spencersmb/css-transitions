@@ -1,0 +1,121 @@
+/*---------------------------------------
+
+
+Primary Styles
+
+
+----------------------------------------*/
+*, *::after, **::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  color: white;
+  background: #272727;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*---------------------------------------
+
+
+Tooltip
+
+
+----------------------------------------*/
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trigger {
+  text-align: center;
+  position: relative;
+  background: #186e6b;
+  width: 200px;
+  height: 60px;
+  display: inline-block;
+  border-radius: 50em;
+  color: white;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  /* TOOLTIP */
+  /* Triangle */
+}
+.trigger:hover em {
+  top: -100%;
+}
+.trigger:hover i {
+  top: 0;
+}
+.trigger:hover::before, .trigger:hover::after {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+.trigger:hover::before {
+  bottom: 80px;
+}
+.trigger:hover::after {
+  bottom: 60px;
+}
+.trigger::before, .trigger::after {
+  position: absolute;
+  visibility: hidden;
+  transition: all .3s;
+  opacity: 0;
+}
+.trigger::before {
+  content: 'File Size: 50M';
+  background: #8a4d6f;
+  width: 140px;
+  height: 60px;
+  border-radius: .25em;
+  bottom: 90px;
+  line-height: 60px;
+  left: calc(50% - 70px);
+}
+.trigger::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #8a4d6f;
+  left: calc(50% - 10px);
+  bottom: 70px;
+}
+
+span, em, i {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+}
+
+em, i {
+  transition: top .3s;
+}
+
+span {
+  overflow: hidden;
+}
+
+em {
+  top: 0;
+  line-height: 60px;
+}
+
+i {
+  top: 100%;
+  background: url("../img/download.svg") no-repeat center center;
+}

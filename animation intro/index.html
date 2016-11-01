@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Morphing icon</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <section>
+      <div class="center">
+          <h1>
+              <span>My favorite food is</span>
+              <span class="word-wrapper">
+                  <div class="word visible">
+                      <div class="i">s</div><div class="i">u</div><div class="i">s</div><div class="i">h</div><div class="i">i</div>
+                  </div>
+                  <div class="word">
+                      <div class="i">p</div><div class="i">i</div><div class="i">z</div><div class="i">z</div><div class="i">a</div>
+                  </div>
+                  <div class="word">
+                      <div class="i">s</div><div class="i">t</div><div class="i">e</div><div class="i">a</div><div class="i">k</div>
+                  </div>
+              </span>
+          </h1>
+      </div>
+    </section>
+    <script type="text/javascript">
+        var intervalID = setInterval(function(){
+            //get current el with visible
+            var visibleWord = document.getElementsByClassName('visible')[0],
+                nextWord = visibleWord.nextSibling;
+
+                //safety check if the next node is a text node and not our word element - some browsers insert a white space and this checks for that.
+                if( nextWord.nodeType == 3 ){
+                    nextWord = nextWord.nextSibling;
+                }
+                //change visible word to hidden
+
+                if( nextWord !== null){
+                    visibleWord.classList.remove('visible');
+                    visibleWord.classList.add('hidden');
+                    nextWord.classList.add('visible');
+                } else {
+                    clearInterval(intervalID);
+                }
+
+
+
+
+
+        }, 4000);
+    </script>
+</body>
+</html>
